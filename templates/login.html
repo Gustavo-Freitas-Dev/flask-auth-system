@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/static/style.css">
 </head>
-<body>
+<body class="login-page">
     <div class="login-wrapper">
         <h1>Login</h1>
 
@@ -19,5 +19,26 @@
 
         <a class="register-link" href="/register">Ainda não tem uma conta? Cadastre-se</a>
     </div>
+
+<script>
+  // Quando a página carregar, adiciona a classe .loaded para fazer fade-in
+  document.addEventListener("DOMContentLoaded", function() {
+      document.body.classList.add("loaded");
+  });
+
+  // Adiciona fade-out ao clicar em links internos
+  const links = document.querySelectorAll('a');
+  links.forEach(link => {
+      link.addEventListener('click', function(e) {
+          e.preventDefault(); // previne o clique normal
+          const href = this.href;
+          document.body.classList.remove('loaded'); // fade-out
+          setTimeout(() => {
+              window.location.href = href; // muda a página após 500ms
+          }, 500);
+      });
+  });
+</script>
+
 </body>
 </html>

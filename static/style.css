@@ -5,17 +5,32 @@
     padding: 0;
 }
 
-/* Body e fundo */
+/* Body e fundo geral */
 body {
     font-family: 'Inter', sans-serif;
-    background: linear-gradient(to right, #4facfe, #00f2fe);
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
 }
 
-/* Container do login */
+body.loaded {
+    opacity: 1;
+}
+
+
+/* Fundo específico por página */
+body.login-page {
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+}
+
+body.register-page {
+    background: linear-gradient(to right, #43e97b, #38f9d7);
+}
+
+/* Container do login e registro */
 .login-wrapper {
     background-color: #ffffff;
     padding: 40px 30px;
@@ -26,12 +41,13 @@ body {
     animation: fadeIn 0.8s ease;
 }
 
+/* Animação de fade-in */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-20px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Título */
+/* Títulos */
 .login-wrapper h1 {
     text-align: center;
     margin-bottom: 25px;
@@ -74,7 +90,7 @@ body {
     background: #00f2fe;
 }
 
-/* Link de registro */
+/* Link de registro/login */
 .login-wrapper .register-link {
     display: block;
     text-align: center;

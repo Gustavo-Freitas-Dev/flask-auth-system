@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro | Flask Auth System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body class="register-page">
+    <div class="login-wrapper">
+        <h1>Cadastro</h1>
+
+        <form method="POST" action="/register">
+            <input type="text" name="name" placeholder="Nome" required>
+            <!-- Campo para o nome do usuário -->
+            
+            <input type="email" name="email" placeholder="Email" required>
+            <!-- Campo para email do usuário -->
+
+            <input type="password" name="password" placeholder="Senha" required>
+            <!-- Campo para senha -->
+
+            <input type="password" name="confirm_password" placeholder="Confirme a senha" required>
+            <!-- Campo para confirmar a senha -->
+
+            <button type="submit">Cadastrar</button>
+        </form>
+
+        <a class="register-link" href="/login">Já tem uma conta? Faça login</a>
+        <!-- Link para voltar para a página de login -->
+    </div>
+
+<script>
+  // Quando a página carregar, adiciona a classe .loaded para fazer fade-in
+  document.addEventListener("DOMContentLoaded", function() {
+      document.body.classList.add("loaded");
+  });
+
+  // Adiciona fade-out ao clicar em links internos
+  const links = document.querySelectorAll('a');
+  links.forEach(link => {
+      link.addEventListener('click', function(e) {
+          e.preventDefault(); // previne o clique normal
+          const href = this.href;
+          document.body.classList.remove('loaded'); // fade-out
+          setTimeout(() => {
+              window.location.href = href; // muda a página após 500ms
+          }, 500);
+      });
+  });
+</script>
+
+</body>
+
+</html>
